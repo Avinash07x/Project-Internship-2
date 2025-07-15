@@ -1,0 +1,119 @@
+// import React, { useState } from 'react';
+// import { Link } from "react-router-dom";
+// import { sendOtp } from '../api/authApi';
+
+// export default function ForgotPassword() {
+//   const [email, setEmail] = useState('');
+//   const [errors, setErrors] = useState({});
+//   const [isLoading, setIsLoading] = useState(false);
+//   const [otpSent, setOtpSent] = useState(false);
+
+//   const validateEmail = (email) => {
+//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     return emailRegex.test(email);
+//   };
+
+//   const handleInputChange = (e) => {
+//     setEmail(e.target.value);
+//     if (errors.email) {
+//       setErrors(prev => ({ ...prev, email: '' }));
+//     }
+//   };
+
+//   const handleSubmit = async () => {
+//     const newErrors = {};
+//     if (!email.trim()) {
+//       newErrors.email = 'Email is required';
+//     } else if (!validateEmail(email)) {
+//       newErrors.email = 'Please enter a valid email address';
+//     }
+
+//     setErrors(newErrors);
+//     if (Object.keys(newErrors).length > 0) return;
+
+//     setIsLoading(true);
+//     try {
+//       const res = await sendOtp(email);
+//       alert(res.message);
+//       setOtpSent(true);
+//     } catch (err) {
+//       alert(err.message || 'Failed to send OTP');
+//     } finally {
+//       setIsLoading(false);
+//     }
+//   };
+
+//   return (
+//     <div className="min-h-screen bg-blue-100 relative overflow-hidden flex items-center justify-center p-4">
+//       <div className="absolute inset-0 overflow-hidden">
+//         <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-blue-200/30 to-transparent rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
+//         <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-blue-300/20 to-transparent rounded-full animate-spin" style={{ animationDuration: '25s', animationDirection: 'reverse' }}></div>
+//       </div>
+
+//       <div className="bg-gradient-to-br rounded-lg shadow-xl w-full max-w-md relative overflow-hidden">
+//         <div className="bg-blue-350 text-black text-center py-2">
+//           <div className="text-xl mb-2">🔑</div>
+//           <h2 className="text-xl font-semibold">Forgot Password</h2>
+//         </div>
+
+//         <div className="p-5">
+//           <div className="space-y-6">
+//             <div className="text-center">
+//               <p className="text-gray-600 text-sm leading-relaxed">
+//                 Enter your email address and we'll send you a verification code.
+//               </p>
+//             </div>
+
+//             <div>
+//               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+//                 Email Address <span className="text-red-500">*</span>
+//               </label>
+//               <input
+//                 type="email"
+//                 id="email"
+//                 name="email"
+//                 value={email}
+//                 onChange={handleInputChange}
+//                 required
+//                 className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+//                 placeholder="Enter your email address"
+//               />
+//               {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
+//             </div>
+
+//             <button
+//               type="button"
+//               onClick={handleSubmit}
+//               disabled={isLoading}
+//               className="w-full bg-blue-300 hover:bg-blue-500 disabled:bg-blue-400 text-black font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center"
+//             >
+//               {isLoading ? (
+//                 <>
+//                   <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+//                   Sending...
+//                 </>
+//               ) : (
+//                 'Send OTP'
+//               )}
+//             </button>
+
+//             {otpSent && (
+//               <p className="text-green-600 text-sm text-center">OTP sent successfully! Please check your email.</p>
+//             )}
+
+//             <div className="text-center">
+//               <Link to="/login">
+//                 <button
+//                   type="button"
+//                   className="text-sm text-green-600 hover:text-green-700 font-medium"
+//                 >
+//                   ← Back to Login
+//                 </button>
+//               </Link>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
