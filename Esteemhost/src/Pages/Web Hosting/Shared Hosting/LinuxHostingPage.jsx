@@ -356,7 +356,7 @@ const LinuxHostingPage = () => {
       <Testimonials />
 
       {/* Custom slider styles */}
-      <style jsx>{`
+      <style>{`
         .slider {
           -webkit-appearance: none;
           appearance: none;

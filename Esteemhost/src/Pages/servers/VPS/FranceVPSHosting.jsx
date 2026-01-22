@@ -414,7 +414,7 @@ const FranceVPSHosting = () => {
         </select>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .slider::-webkit-slider-thumb {
           appearance: none;
           height: 24px;

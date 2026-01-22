@@ -7,7 +7,7 @@ import {
 import { motion } from 'framer-motion'; // ✅ Fix: import motion
 import EsteemhostFAQ from '../../../components/EsteemhostFAQ';
 import Testimonials from '../../../components/Testimonials';
-import Hero80 from '../../../assets/17.png'; // ✅ Make sure the path is correct
+import Hero80 from '../../../assets/17.png'; // ✅ Make sure the path is corrects
 
 const DomainResellerPage = () => {
   const [isVisible, setIsVisible] = useState(false);

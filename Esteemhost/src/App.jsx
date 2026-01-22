@@ -24,7 +24,7 @@ import OurServicesPage from "./Pages/AboutPage/Services/OurServicesPage";
 import TermsConditionsPage from "./Pages/AboutPage/Services/TermsConditionsPage";
 import OurPartnersPage from "./Pages/AboutPage/Partners/OurPartnersPage";
 import FestiveOfferPage from "./Pages/Offer/FestiveOfferPage";
-import VerifyEmail from "./Pages/VerifyEmail.JSX";
+import VerifyEmail from "./Pages/VerifyEmail";
 import LinuxHostingPage from "./Pages/Web Hosting/Shared Hosting/LinuxHostingPage";
 import WindowsHostingPage from "./Pages/Web Hosting/Shared Hosting/WindowsHostingPage";
 import JavaHostingPage from "./Pages/Web Hosting/Shared Hosting/JavaHostingpage";

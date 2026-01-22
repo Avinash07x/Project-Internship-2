@@ -295,7 +295,7 @@ return (
     </div>
 
     {/* Custom CSS Animations */}
-    <style jsx>{`
+    <style>{`
       @keyframes gentleBounce {
         0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
         40% { transform: translateY(-8px); }
