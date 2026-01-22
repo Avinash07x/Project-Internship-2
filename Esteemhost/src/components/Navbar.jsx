@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, LifeBuoy, MessageCircle, User, UserPlus, Menu, X } from 'lucide-react';
-import DCKNav from "../assets/logo.jpg";
+import DCKNav from "../assets/logo1.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -377,19 +377,6 @@ const Navbar = () => {
           </div>
         )}
       </header>
-{/* 
-      <div className="bg-gradient-to-br from-indigo-500 to-purple-600 py-2">
-        <div className="max-w-6xl mx-auto px-2 text-center">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 max-w-3xl mx-auto">
-            {domainPrices.map((domain, index) => (
-              <div key={index} className="bg-white p-2 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 transform hover:scale-105 group">
-                <div className="text-lg font-semibold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors duration-300">{domain.extension}</div>
-                <div className="text-red-500 font-semibold group-hover:text-red-600 transition-colors duration-300">{domain.price}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

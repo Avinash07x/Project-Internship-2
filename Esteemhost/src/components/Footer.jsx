@@ -485,6 +485,7 @@
 // export default Footer;
 
 import React, { useState } from 'react';
+import EsFoo from "../assets/logo1.png";
 import { 
   FileText, 
   HelpCircle, 
@@ -575,7 +576,7 @@ const Footer = () => {
         {/* Logo and Brand Section */}
         <div className="mb-8 text-center">
           <div className="flex items-center justify-center mb-4">
-            <h2 className="text-2xl font-bold text-white">Esteem Host</h2>
+            <img src={EsFoo} alt="Esteemhost Logo" className="h-10 w-auto" />
           </div>
           <p className="text-gray-400 text-sm max-w-2xl mx-auto">
             Get your affordable Web Hosting and Domain name today!

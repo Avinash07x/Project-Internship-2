@@ -25,6 +25,24 @@ import TermsConditionsPage from "./Pages/AboutPage/Services/TermsConditionsPage"
 import OurPartnersPage from "./Pages/AboutPage/Partners/OurPartnersPage";
 import FestiveOfferPage from "./Pages/Offer/FestiveOfferPage";
 import VerifyEmail from "./Pages/VerifyEmail.JSX";
+import LinuxHostingPage from "./Pages/Web Hosting/Shared Hosting/LinuxHostingPage";
+import WindowsHostingPage from "./Pages/Web Hosting/Shared Hosting/WindowsHostingPage";
+import JavaHostingPage from "./Pages/Web Hosting/Shared Hosting/JavaHostingpage";
+import LinuxResellerHosting from "./Pages/Web Hosting/Reseller Hosting/LinuxResellerHosting";
+import WindowsResellerHosting from "./Pages/Web Hosting/Reseller Hosting/WindowsResellerHosting";
+import CloudHostingPage from "./Pages/Web Hosting/CMS Hosting/Cloudweb";
+import EcommerceHostingPage from "./Pages/Web Hosting/CMS Hosting/Ecommerce";
+import WordPressHostingPage from "./Pages/Web Hosting/CMS Hosting/Wordpress";
+import IndiaBasedCloud from "./Pages/servers/Cloud/IndiaBasedCloud";
+import UsaBasedCloud from "./Pages/servers/Cloud/UsaBasedCloud";
+import IndiaVPSHostingPage from "./Pages/servers/VPS/IndiaVPSHostingPage";
+import GermanyVPSHostingPage from "./Pages/servers/VPS/GermanyVPSHostingPage";
+import FranceVPSHosting from "./Pages/servers/VPS/FranceVPSHosting";
+import UsaVPSHostingPage from "./Pages/servers/VPS/UsaVPSHostingPage";
+import DedicatedServerPage from "./Pages/servers/Dedicated/DedicatedServerPage";
+import USADedicatedServerHosting from "./Pages/servers/Dedicated/USADedicatedServerHosting";
+import FranceDedicatedServerPage from "./Pages/servers/Dedicated/FranceDedicatedServerPage";
+import GermanyDedicatedServerPage from "./Pages/servers/Dedicated/GermanyDedicatedServerPage";
 
 
 
@@ -57,6 +75,27 @@ const App = () => {
           <Route path="/terms" element={<TermsConditionsPage />} />
           <Route path="/partners" element={<OurPartnersPage />} />
           <Route path="/republic-day-offer" element={<FestiveOfferPage />} />
+          <Route path="/linux-hosting" element={<LinuxHostingPage />} />
+          <Route path="/windows-hosting" element={<WindowsHostingPage />} />
+          <Route path="/java-hosting" element={<JavaHostingPage />} />
+          <Route path="/linux-reseller" element={<LinuxResellerHosting />} />
+          <Route path="/windows-reseller" element={<WindowsResellerHosting />} />
+          <Route path="/wordpress-hosting" element={<CloudHostingPage />} />
+          <Route path="/ecommerce-hosting" element={<EcommerceHostingPage />} />
+          <Route path="/cloud-hosting" element={<WordPressHostingPage />} />
+          <Route path="/india-cloud" element={<IndiaBasedCloud />} />
+          <Route path="/usa-cloud" element={<UsaBasedCloud />} />
+          <Route path="/india-vps" element={<IndiaVPSHostingPage />} />
+          <Route path="/usa-vps" element={<UsaVPSHostingPage />} />
+          <Route path="/france-vps" element={<FranceVPSHosting />} />
+          <Route path="/germany-vps" element={<GermanyVPSHostingPage />} />
+          <Route path="/india-dedicated" element={<DedicatedServerPage />} />
+          <Route path="/usa-dedicated" element={<USADedicatedServerHosting />} />
+          <Route path="/france-dedicated" element={<FranceDedicatedServerPage />} />
+          <Route path="/germany-dedicated" element={<GermanyDedicatedServerPage />} />
+          
+          
+
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -1,12 +1,14 @@
 const bcrypt = require("bcryptjs");
 const User = require("../model/User");
 const Otp = require("../model/Otp");
-const sendEmail = require("../utils/sendEmail");
+const sendOTP = require("../utils/sendEmail");
 
 exports.registerUser = async (req, res) => {
   const { email } = req.body;
 
   try {
+    if (!email) return res.status(400).json({ message: "Email is required" });
+
     const existing = await User.findOne({ email });
     if (existing) return res.status(400).json({ message: "Email already registered." });
 
@@ -18,12 +20,12 @@ exports.registerUser = async (req, res) => {
       { upsert: true, new: true }
     );
 
-    await sendEmail(email, "Your OTP Code", `Your OTP is: ${otp}`);
+    await sendOTP(email, otp);
 
     res.status(200).json({ message: "OTP sent to your email.", email });
   } catch (err) {
-    console.error("❌ OTP error:", err.message);
-    res.status(500).json({ message: "Server error" });
+    console.error("❌ OTP error:", err);
+    res.status(500).json({ message: "Server error: " + err.message });
   }
 };
 
@@ -31,6 +33,10 @@ exports.verifyOtp = async (req, res) => {
   const { email, otp, ...userData } = req.body;
 
   try {
+    if (!email || !otp) {
+      return res.status(400).json({ message: "Email and OTP are required" });
+    }
+
     const record = await Otp.findOne({ email });
     if (!record || record.otp !== otp) {
       return res.status(400).json({ message: "Invalid OTP" });
@@ -38,6 +44,10 @@ exports.verifyOtp = async (req, res) => {
 
     const existingUser = await User.findOne({ email });
     if (existingUser) return res.status(400).json({ message: "User already exists." });
+
+    if (!userData.password) {
+      return res.status(400).json({ message: "Password is required" });
+    }
 
     const hashedPassword = await bcrypt.hash(userData.password, 10);
 
@@ -53,7 +63,7 @@ exports.verifyOtp = async (req, res) => {
 
     res.status(200).json({ message: "Email verified and account created." });
   } catch (err) {
-    console.error("❌ Verify OTP error:", err.message);
-    res.status(500).json({ message: "Server error" });
+    console.error("❌ Verify OTP error:", err);
+    res.status(500).json({ message: "Server error: " + err.message });
   }
 };

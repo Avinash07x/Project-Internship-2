@@ -1,4 +1,3 @@
-// Plans.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -81,6 +80,7 @@ const Plans = () => {
 
   return (
     <div className="bg-blue-100 py-5 px-4 min-h-screen relative overflow-hidden">
+      {/* Background animation */}
       <div className="absolute inset-0 overflow-hidden">
         <div
           className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-blue-200/30 to-transparent rounded-full animate-spin"
@@ -92,10 +92,12 @@ const Plans = () => {
         ></div>
       </div>
 
+      {/* Content */}
       <div className="max-w-7xl mx-auto text-center relative z-10">
         <h2 className="text-4xl font-bold mb-2 text-gray-800">Most Popular Hosting Plans</h2>
         <p className="mb-8 text-gray-600">Cheap Dedicated Server Hosting provider in India</p>
 
+        {/* Toggle */}
         <div className="flex justify-center mb-12 transition-all duration-300">
           <button
             onClick={() => setBillingCycle('monthly')}
@@ -115,32 +117,42 @@ const Plans = () => {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Plans */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {webPlans.map((plan, idx) => (
             <div
               key={idx}
-              className={`p-6 rounded-2xl bg-white border hover:shadow-xl transition-all duration-300 relative ${
+              className={`p-6 rounded-2xl bg-white border hover:shadow-xl transition-all duration-300 relative flex flex-col justify-between h-full ${
                 plan.popular ? 'border-green-500 shadow-lg scale-105' : 'border-green-200'
               }`}
             >
+              {/* Popular badge */}
               {plan.popular && (
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
                   ⭐ MOST POPULAR
                 </div>
               )}
-              <h3 className="text-xl font-bold text-gray-800">{plan.name}</h3>
-              <p className="text-gray-500 mb-4">{plan.description}</p>
-              <div className={`text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${plan.color}`}>
-                {plan.price[billingCycle]}
-                <span className="text-sm text-gray-500 font-normal">
-                  /{billingCycle === 'monthly' ? 'mo' : 'yr'}
-                </span>
+
+              {/* Card Content */}
+              <div>
+                <h3 className="text-xl font-bold text-gray-800">{plan.name}</h3>
+                <p className="text-gray-500 mb-4">{plan.description}</p>
+                <div
+                  className={`text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${plan.color}`}
+                >
+                  {plan.price[billingCycle]}
+                  <span className="text-sm text-gray-500 font-normal">
+                    /{billingCycle === 'monthly' ? 'mo' : 'yr'}
+                  </span>
+                </div>
+                <ul className="text-left mt-4 space-y-2 text-sm text-gray-700">
+                  {plan.features.map((f, i) => (
+                    <li key={i}>• {f}</li>
+                  ))}
+                </ul>
               </div>
-              <ul className="text-left mt-4 space-y-2 text-sm text-gray-700">
-                {plan.features.map((f, i) => (
-                  <li key={i}>• {f}</li>
-                ))}
-              </ul>
+
+              {/* Buy Now Button */}
               <button
                 onClick={() => handleBuyNow(plan)}
                 className={`mt-6 w-full py-3 bg-gradient-to-r ${plan.color} text-white rounded-xl font-semibold hover:scale-105 transition`}
@@ -156,6 +168,7 @@ const Plans = () => {
 };
 
 export default Plans;
+
 
 // import React, { useState } from 'react';
 
